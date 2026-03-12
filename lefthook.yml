@@ -1,0 +1,25 @@
+# Lefthook Configuration for Agency Agents Fork
+# https://github.com/evilmartians/lefthook
+
+pre-commit:
+  parallel: true
+  commands:
+    changelog-check:
+      glob: "scripts/*"
+      run: |
+        if git diff --cached --name-only | grep -q "CHANGELOG-FORK.md"; then
+          exit 0
+        else
+          echo "⚠️  WARNING: You are modifying core scripts but haven't updated CHANGELOG-FORK.md."
+          echo "Please add an entry to the changelog before committing."
+          exit 1
+        fi
+    readme-check:
+      glob: "README.md"
+      run: |
+        if git diff --cached --name-only | grep -q "CHANGELOG-FORK.md"; then
+          exit 0
+        else
+          echo "⚠️  WARNING: README.md updated but CHANGELOG-FORK.md ignored."
+          exit 1
+        fi
