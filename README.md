@@ -96,20 +96,20 @@ projects and tools.
 Instead of copying files, we use **symlinks**. This ensures that when you
 `git pull` updates in this repo, all your tools are updated instantly.
 
-```bash
-# One-time setup: link all agents to ~/.claude and ~/.gemini
-./scripts/agency-manager.sh setup
-```
+### Quick Start (Phase 2 Modular Workflow)
 
-### 2. Project Initialization
+1.  **Backup & Modularize**:
+    ```bash
+    ./scripts/agency-manager.sh modularize
+    ```
+    This splits your `~/.claude/CLAUDE.md` into clean modules and sets up a universal `AGENTS.md`.
 
-When starting a new project, run this command inside the new project directory
-to link your **Master CLAUDE.md** and any tool-specific rules (Cursor/Windsurf):
-
-```bash
-# Run this inside your NEW project directory
-/Users/thomas/Projects/tools_from_the_web/agency-agents/scripts/agency-manager.sh init-project
-```
+2.  **Initialize a New Project with a Specialist**:
+    ```bash
+    cd my-new-project
+    ~/path/to/agency-agents/scripts/agency-manager.sh init-project engineering-frontend-developer
+    ```
+    This creates a project-level `CLAUDE.md` that only pulls in what you need!
 
 ### 3. Syncing New Agents
 
