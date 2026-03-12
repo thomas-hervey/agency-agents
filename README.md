@@ -10,6 +10,26 @@
 >   `~/.claude/agents/`) directly.
 > - **ALWAYS** edit agents here in the repo and run
 >   `./scripts/agency-manager.sh sync`.
+
+### Fork Maintenance Guide
+
+Since this is a personal fork, you will occasionally want to pull in new agents from the upstream repository while keeping your centralization scripts and modular config intact.
+
+1.  **Pull from Upstream**:
+    ```bash
+    git pull upstream main
+    ```
+2.  **Sync New Agents**:
+    ```bash
+    ./scripts/agency-manager.sh sync
+    ```
+3.  **Update Your Changelog**:
+    Always document significant changes in `CHANGELOG-FORK.md`. This is enforced for AI agents via `~/.claude/process.md` and (optionally) via `lefthook`.
+
+### Safeguards & Enforcement
+- **Agent Rules**: Every agent working on this repo is instructed to update the `CHANGELOG-FORK.md`.
+- **Global Backups**: The `agency-manager.sh backup` command ensures you can always revert your global Claude config.
+- **Git Hooks**: Use `lefthook` to prevent committing changes to scripts or docs without a corresponding changelog entry.
 > - **Master Template**: Use `~/.claude/CLAUDE.md` as the global instruction
 >   source of truth.
 
