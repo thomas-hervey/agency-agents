@@ -10,6 +10,20 @@
 >   `~/.claude/agents/`) directly.
 > - **ALWAYS** edit agents here in the repo and run
 >   `./scripts/agency-manager.sh sync`.
+> - **Master Template**: Use `~/.claude/CLAUDE.md` as the global instruction
+>   source of truth.
+
+## 🚀 Quick Project Setup
+
+When starting a new coding project, run this inside the new project directory:
+
+```bash
+# General setup
+/Users/thomas/Projects/tools_from_the_web/agency-agents/scripts/agency-manager.sh init-project
+
+# Setup with a specific specialist (e.g., Frontend Developer)
+/Users/thomas/Projects/tools_from_the_web/agency-agents/scripts/agency-manager.sh init-project engineering-frontend-developer
+```
 
 ### Fork Maintenance Guide
 
@@ -30,8 +44,6 @@ Since this is a personal fork, you will occasionally want to pull in new agents 
 - **Agent Rules**: Every agent working on this repo is instructed to update the `CHANGELOG-FORK.md`.
 - **Global Backups**: The `agency-manager.sh backup` command ensures you can always revert your global Claude config.
 - **Git Hooks**: Use `lefthook` to prevent committing changes to scripts or docs without a corresponding changelog entry.
-> - **Master Template**: Use `~/.claude/CLAUDE.md` as the global instruction
->   source of truth.
 
 ---
 

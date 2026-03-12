@@ -10,6 +10,7 @@ This changelog tracks all modifications, enhancements, and architectural shifts 
 ## [Unreleased]
 
 ### Added
+- **Quick Project Setup**: Added a high-visibility setup guide to the top of `README.md`.
 - Git hook enforcement for changelog updates.
 - Future agent instructions in `~/.claude/process.md`.
 
