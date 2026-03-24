@@ -1,55 +1,8 @@
 # 🎭 The Agency: AI Specialists Ready to Transform Your Workflow
 
-> [!IMPORTANT]
-> **THIS IS A PERSONAL FORK FOR CENTRALIZED USAGE**
+> **A complete AI agency at your fingertips** - From frontend wizards to Reddit community ninjas, from whimsy injectors to reality checkers. Each agent is a specialized expert with personality, processes, and proven deliverables.
 >
-> This repository is maintained as a **Source of Truth** for all local
-> agent-based tools (Claude Code, Antigravity, Cursor, etc.).
->
-> - **DO NOT** edit files in tool-specific directories (e.g.,
->   `~/.claude/agents/`) directly.
-> - **ALWAYS** edit agents here in the repo and run
->   `./scripts/agency-manager.sh sync`.
-> - **Master Template**: Use `~/.claude/CLAUDE.md` as the global instruction
->   source of truth.
-
-## 🚀 Quick Project Setup
-
-When starting a new coding project, run this inside the new project directory:
-
-```bash
-# General setup
-/Users/thomas/Projects/tools_from_the_web/agency-agents/scripts/agency-manager.sh init-project
-
-# Setup with a specific specialist (e.g., Frontend Developer)
-/Users/thomas/Projects/tools_from_the_web/agency-agents/scripts/agency-manager.sh init-project engineering-frontend-developer
-```
-
-### Fork Maintenance Guide
-
-Since this is a personal fork, you will occasionally want to pull in new agents from the upstream repository while keeping your centralization scripts and modular config intact.
-
-1.  **Pull from Upstream**:
-    ```bash
-    git pull upstream main
-    ```
-2.  **Sync New Agents**:
-    ```bash
-    ./scripts/agency-manager.sh sync
-    ```
-3.  **Update Your Changelog**:
-    Always document significant changes in `CHANGELOG-FORK.md`. This is enforced for AI agents via `~/.claude/process.md` and (optionally) via `lefthook`.
-
-### Safeguards & Enforcement
-- **Agent Rules**: Every agent working on this repo is instructed to update the `CHANGELOG-FORK.md`.
-- **Global Backups**: The `agency-manager.sh backup` command ensures you can always revert your global Claude config.
-- **Git Hooks**: Use `lefthook` to prevent committing changes to scripts or docs without a corresponding changelog entry.
-
----
-
-> **A complete AI agency at your fingertips** - From frontend wizards to Reddit
-> community ninjas, from whimsy injectors to reality checkers. Each agent is a
-> specialized expert with personality, processes, and proven deliverables.
+> *This is a personal fork — see [FORK-README.md](FORK-README.md) for setup and maintenance notes.*
 
 [![GitHub stars](https://img.shields.io/github/stars/msitarzewski/agency-agents?style=social)](https://github.com/msitarzewski/agency-agents)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
