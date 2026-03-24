@@ -5,7 +5,7 @@
 set -euo pipefail
 
 # Configuration
-REPO_ROOT="/Users/thomas/Projects/tools_from_the_web/agency-agents"
+REPO_ROOT="/Users/thomas/Projects/tools_from_the_web/Agent Tools/agency-agents"
 CLAUDE_DIR="$HOME/.claude"
 CLAUDE_AGENTS_DIR="$CLAUDE_DIR/agents"
 ANTIGRAVITY_SKILLS_DIR="$HOME/.gemini/antigravity/skills"
@@ -46,7 +46,7 @@ backup() {
     local target="$BACKUP_DIR/$timestamp"
     mkdir -p "$target"
     ok "Backing up global configuration to $target..."
-    
+
     # Copy all .md files from ~/.claude (excluding the backups dir itself)
     find "$CLAUDE_DIR" -maxdepth 1 -name "*.md" -exec cp {} "$target/" \;
     ok "Backup complete."
@@ -58,16 +58,16 @@ modularize() {
         return
     fi
     backup
-    
+
     # Extract identity
     sed -n '/## About Me/,/## Stack/p' "$MASTER_CLAUDE_MD" | sed '$d' > "$CLAUDE_DIR/identity.md"
-    
+
     # Extract stack & coding style
     sed -n '/## Stack/,/## Communication Style/p' "$MASTER_CLAUDE_MD" | sed '$d' > "$CLAUDE_DIR/standards.md"
-    
+
     # Extract process (communication and git)
     sed -n '/## Communication Style/,$p' "$MASTER_CLAUDE_MD" > "$CLAUDE_DIR/process.md"
-    
+
     # Create AGENTS.md template if it doesn't exist
     if [ ! -f "$CLAUDE_DIR/AGENTS.md" ]; then
         cat <<EOF > "$CLAUDE_DIR/AGENTS.md"
@@ -144,7 +144,7 @@ cmd_setup() {
 
 cmd_init_project() {
     ok "Initializing project in $(pwd)..."
-    
+
     # Link Master CLAUDE.md
     if [ -f "CLAUDE.md" ]; then
         warn "CLAUDE.md already exists. Skipping link."
@@ -187,7 +187,7 @@ EOF
             warn "Agent $agent_name not found in $CLAUDE_AGENTS_DIR"
         fi
     fi
-    
+
     # Project-scoped rules (Optional: e.g. for Cursor)
     if [[ -d "${REPO_ROOT}/integrations/cursor/rules" ]]; then
         mkdir -p ".cursor/rules"
@@ -196,7 +196,7 @@ EOF
         done
         ok "Linked Cursor rules to .cursor/rules/"
     fi
-    
+
     # Windsurf rules
     if [[ -f "${REPO_ROOT}/integrations/windsurf/.windsurfrules" ]]; then
         ln -sf "${REPO_ROOT}/integrations/windsurf/.windsurfrules" ".windsurfrules"

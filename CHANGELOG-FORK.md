@@ -10,6 +10,8 @@ This changelog tracks all modifications, enhancements, and architectural shifts 
 ## [Unreleased]
 
 ### Changed
+
+- **Updated repo root path**: Changed hardcoded path in `scripts/agency-manager.sh` and `README.md` from `tools_from_the_web/agency-agents` to `tools_from_the_web/Agent Tools/agency-agents` to match new directory location.
 - **Fork content moved to FORK-README.md**: Removed fork-specific header and Quick Project Setup section from `README.md` to prevent conflicts on future upstream rebases. Content now lives in `FORK-README.md` with a brief pointer in README.
 
 ---
@@ -17,16 +19,19 @@ This changelog tracks all modifications, enhancements, and architectural shifts 
 ## [2026-03-11] - Phase 2: Modular Architecture and Safety
 
 ### Added
+
 - **`agency-manager.sh backup`**: Command to create timestamped archives of the global configuration.
 - **`agency-manager.sh modularize`**: Idempotent command to split monolithic `CLAUDE.md` into modules.
 - **`AGENTS.md`**: Universal instruction template for all AI tools (Cursor, Windsurf, Copilot).
 - **On-Demand Specialist Bootstrapping**: `init-project [agent-name]` now allows importing specific specialists via a local `CLAUDE.md` wrapper.
 
 ### Updated
+
 - **Modular Master**: Split `~/.claude/CLAUDE.md` into `identity.md`, `standards.md`, and `process.md`.
 - **Refined `init-project`**: Now handles modular imports and supports multi-tool rules (Cursor/Windsurf).
 
 ### Fixed
+
 - Undefined variable issues and macOS `head` portability in `agency-manager.sh`.
 
 ---
@@ -34,10 +39,12 @@ This changelog tracks all modifications, enhancements, and architectural shifts 
 ## [2026-03-11] - Phase 1: Centralization and Symlinking
 
 ### Added
+
 - **`agency-manager.sh`**: Initial release of the centralized management script.
 - **Global Symlinking**: Strategy to link agents from the repo to `~/.claude/agents` and `~/.gemini/antigravity/skills`.
 - **Master `CLAUDE.md`**: Designated `~/.claude/CLAUDE.md` as the single source of truth for all projects.
 
 ### Updated
+
 - **README Updates**: Massive documentation overhaul for fork-specific workflows.
 - **Directory Cleanup**: Removed nested agent folders in favor of a flat symlink structure.

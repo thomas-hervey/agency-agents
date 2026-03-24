@@ -101,7 +101,7 @@ Instead of copying files, we use **symlinks**. This ensures that when you
 If new agents are added to the repo (via PR or pull), refresh your links:
 
 ```bash
-/Users/thomas/Projects/tools_from_the_web/agency-agents/scripts/agency-manager.sh sync
+/Users/thomas/Projects/tools_from_the_web/Agent Tools/agency-agents/scripts/agency-manager.sh sync
 ```
 
 ---
